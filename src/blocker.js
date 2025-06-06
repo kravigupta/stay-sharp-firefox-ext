@@ -3,7 +3,7 @@
  @author Ravi Kumar Gupta <https://kravigupta.in>
  */
 
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     // Polyfill for browser API
     const extApi = (typeof browser !== 'undefined') ? browser : chrome;
 
@@ -15,7 +15,7 @@
     const suggestListEl = document.getElementById("suggestList");
 
     // Helper to render favicon
-    function getFaviconUrl(url) {
+    function getFaviconUrl (url) {
         try {
             let u = new URL(url.startsWith('http') ? url : 'https://' + url);
             return `${u.origin}/favicon.ico`;
@@ -54,13 +54,20 @@
                 goals.forEach(goal => {
                     const box = document.createElement('div');
                     box.className = 'goal-box';
-                    box.innerHTML = '<img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/flag-fill.svg" class="goal-flag" alt="flag">' +
-                        '<span class="goal-text">' + goal + '</span>';
+                    // Safe DOM construction for goal box
+                    const flag = document.createElement('img');
+                    flag.src = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/flag-fill.svg';
+                    flag.className = 'goal-flag';
+                    flag.alt = 'flag';
+                    box.appendChild(flag);
+                    const span = document.createElement('span');
+                    span.className = 'goal-text';
+                    span.textContent = goal;
+                    box.appendChild(span);
                     goalsList.appendChild(box);
                 });
             } else {
                 // Safe DOM construction for the empty goals message
-                goalsList.innerHTML = '';
                 const msg = document.createElement('div');
                 msg.className = 'empty-message';
                 msg.textContent = 'Set your goals in the ';
@@ -83,10 +90,25 @@
             const viewToggle = document.createElement('div');
             viewToggle.className = 'suggested-view-toggle right-align';
             const cardBtn = document.createElement('button');
-            cardBtn.innerHTML = '<img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/grid-3x3-gap-fill.svg" alt="Card View" style="width:1.2em;height:1.2em;vertical-align:middle;">';
+            // Create icon for Card View
+            const cardImg = document.createElement('img');
+            cardImg.src = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/grid-3x3-gap-fill.svg';
+            cardImg.alt = 'Card View';
+            cardImg.style.width = '1.2em';
+            cardImg.style.height = '1.2em';
+            cardImg.style.verticalAlign = 'middle';
+            cardBtn.appendChild(cardImg);
+
+
             cardBtn.className = 'toggle-btn active';
             const listBtn = document.createElement('button');
-            listBtn.innerHTML = '<img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/list-ul.svg" alt="List View" style="width:1.2em;height:1.2em;vertical-align:middle;">';
+            const listImg = document.createElement('img');
+            listImg.src = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/list-ul.svg';
+            listImg.alt = 'List View';
+            listImg.style.width = '1.2em';
+            listImg.style.height = '1.2em';
+            listImg.style.verticalAlign = 'middle';
+            listBtn.appendChild(listImg);
             listBtn.className = 'toggle-btn';
             viewToggle.appendChild(cardBtn);
             viewToggle.appendChild(listBtn);
@@ -115,7 +137,7 @@
             }
 
             // Card view rendering function
-            function renderCardView() {
+            function renderCardView () {
                 // Clear previous
                 let old;
                 if (suggestListEl) {
@@ -137,7 +159,7 @@
                         img.src = getFaviconUrl(site.url);
                         img.className = 'suggested-site-icon';
                         img.alt = 'icon';
-                        img.onerror = function() {
+                        img.onerror = function () {
                             this.onerror = null;
                             this.src = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe.svg';
                         };
@@ -158,7 +180,7 @@
                         img.src = getFaviconUrl(site.url);
                         img.className = 'suggested-site-icon';
                         img.alt = 'icon';
-                        img.onerror = function() {
+                        img.onerror = function () {
                             this.onerror = null;
                             this.src = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe.svg';
                         };
@@ -176,7 +198,7 @@
             }
 
             // List view rendering function
-            function renderListView() {
+            function renderListView () {
                 // Clear previous
                 let old;
                 if (suggestListEl) {
@@ -198,7 +220,7 @@
                         favicon.src = getFaviconUrl(site.url);
                         favicon.className = "favicon";
                         favicon.alt = "favicon";
-                        favicon.onerror = function() {
+                        favicon.onerror = function () {
                             this.onerror = null;
                             this.src = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe.svg";
                         };
@@ -218,12 +240,12 @@
             renderCardView();
 
             // Toggle logic
-            cardBtn.onclick = function() {
+            cardBtn.onclick = function () {
                 cardBtn.classList.add('active');
                 listBtn.classList.remove('active');
                 renderCardView();
             };
-            listBtn.onclick = function() {
+            listBtn.onclick = function () {
                 listBtn.classList.add('active');
                 cardBtn.classList.remove('active');
                 renderListView();
