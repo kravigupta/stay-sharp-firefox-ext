@@ -7,7 +7,9 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const DIST_DIR = path.join(__dirname, 'binaries', 'dist');
-const DIST_ZIP = path.join(__dirname, 'binaries', 'stay-sharp-firefox-ext.zip');
+const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'manifest.json'), 'utf8'));
+const VERSION = manifest.version;
+const DIST_ZIP = path.join(__dirname, 'binaries', `stay-sharp-firefox-ext-${VERSION}.zip`);
 const SRC_FILES = [
   'src/manifest.json',
   'src/background.js',
@@ -64,8 +66,7 @@ function minifyAssets() {
 function zipDist() {
   // Remove old zip if exists
   if (fs.existsSync(DIST_ZIP)) fs.rmSync(DIST_ZIP);
-  // Use system zip command for cross-platform compatibility
-  execSync(`cd "${DIST_DIR}" && zip -r ../stay-sharp-firefox-ext.zip *`, { stdio: 'inherit' });
+  execSync(`cd "${DIST_DIR}" && zip -r ../stay-sharp-firefox-ext-${VERSION}.zip *`, { stdio: 'inherit' });
 }
 
 function main() {
@@ -74,7 +75,7 @@ function main() {
   copyFiles();
   minifyAssets();
   zipDist();
-  console.log('Build complete! Distribution is in binaries/dist and binaries/stay-sharp-firefox-ext.zip');
+  console.log(`Build complete! Distribution is in binaries/dist and binaries/stay-sharp-firefox-ext-${VERSION}.zip`);
 }
 
 main();
