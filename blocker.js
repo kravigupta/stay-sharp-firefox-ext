@@ -42,12 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 goals = [];
             }
         }
-        if (goalsText) {
+        const goalsList = document.getElementById("goalsList");
+        if (goalsList) {
+            goalsList.innerHTML = '';
             if (goals.length > 0) {
-                goalsText.innerHTML = '<ul style="padding-left:20px;text-align:left;">' + goals.map(g => `<li>${g}</li>`).join('') + '</ul>';
-                goalsText.style.listStyle = 'disc inside';
+                goals.forEach(goal => {
+                    const box = document.createElement('div');
+                    box.className = 'goal-box';
+                    box.innerHTML = '<img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/flag-fill.svg" class="goal-flag" alt="flag">' +
+                        '<span class="goal-text">' + goal + '</span>';
+                    goalsList.appendChild(box);
+                });
             } else {
-                goalsText.innerHTML = 'Set your goals in the <a href="options.html" target="_blank" style="color:#3498db;">extension options</a>!';
+                goalsList.innerHTML = 'Set your goals in the <a href="options.html" target="_blank" style="color:#3498db;">extension options</a>!';
             }
         }
         // Suggested Sites
