@@ -6,7 +6,7 @@ Purpose is to help users block distracting websites and stay focused. Also, when
 
 The custom page can have -
 1. Website you can visit for a break - Learning resources, news, etc.
-2. Custom message for yourself to remind you why you are blocking the site.
+2. Custom Goals to bring you back to focus - like "Read a book", "Go for a walk", etc.
 3. and more.. 
 
 ## Features
