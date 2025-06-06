@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Stay Focused</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                text-align: center;
+                padding-top: 80px;
+                background-color: #fdf6e3;
+                color: #333;
+            }
+            .top-link {
+                position: absolute;
+                top: 18px;
+                right: 24px;
+                font-size: 1em;
+                text-decoration: none;
+                color: #3498db;
+                background: #fff;
+                border-radius: 6px;
+                padding: 7px 16px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+                transition: background 0.2s;
+            }
+            .top-link:hover {
+                background: #eaf6fb;
+            }
+            h1 {
+                font-size: 3em;
+                color: #e74c3c;
+            }
+
+            p {
+                font-size: 1.2em;
+                margin-top: 20px;
+            }
+            .suggest-block {
+                margin: 40px auto 0 auto;
+                max-width: 400px;
+                background: #fff;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+                padding: 20px 10px 10px 10px;
+            }
+            .suggest-block h2 {
+                margin-top: 0;
+                color: #2ecc71;
+                font-size: 1.3em;
+            }
+            .suggest-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .site-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+            .favicon {
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+                background: #eee;
+                object-fit: contain;
+            }
+            .site-item a {
+                color: #3498db;
+                text-decoration: none;
+                word-break: break-all;
+            }
+            .goals-block {
+                margin: 30px auto 0 auto;
+                max-width: 400px;
+                background: #fff;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+                padding: 20px 10px 10px 10px;
+            }
+            .goals-block h2 {
+                margin-top: 0;
+                color: #e67e22;
+                font-size: 1.2em;
+            }
+            .credit {
+                margin-top: 60px;
+                color: #aaa;
+                font-size: 0.95em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <a href="options.html" class="top-link" target="_blank">Preferences</a>
+        <h1>Stay Sharp!</h1>
+        <p>This site is blocked to help you stay focused and productive.</p>
+        <div class="goals-block" id="goalsBlock">
+            <h2>Your Goals</h2>
+            <div id="goalsText" class="goals-text" style="white-space:pre-line;color:#444;margin-bottom:10px;"></div>
+        </div>
+        <div class="suggest-block">
+            <h2>Try visiting one of these instead:</h2>
+            <ul class="suggest-list" id="suggestList"></ul>
+        </div>
+        <div class="credit">Stay Sharp &mdash; Made with more distractions than you'd expect by <a href="https://kravigupta.in" target="_blank" style="color:#aaa;text-decoration:underline;">Ravi Kumar Gupta</a></div>
+        <script src="blocker.js"></script>
+    </body>
+
+</html>

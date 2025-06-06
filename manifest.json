@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "Stay Sharp",
+    "version": "1.0",
+    "description": "Blocks distracting websites to help you stay sharp and focused.",
+    "author": "Ravi Kumar Gupta",
+    "homepage_url": "https://kravigupta.in/projects/stay-sharp",
+    "permissions": [
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "web_accessible_resources": [
+        "blocker.html"
+    ],
+    "icons": {
+        "48": "icons/icon.png"
+    },
+    "applications": {
+        "gecko": {
+            "id": "kravi.gupta+stay-sharp@gmail.com"
+        }
+    }
+}

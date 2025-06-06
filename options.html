@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Stay Sharp - Preferences</title>
+        <link rel="stylesheet" href="options.css">
+    </head>
+
+    <body>
+        <a href="options.html" class="top-link" target="_blank">Preferences</a>
+        <h1>Stay Sharp!</h1>
+        <p>This site is blocked to help you stay focused and productive.</p>
+        <div class="main-columns">
+            <div class="left-col">
+                <div class="bordered-block" id="blocked-sites-block">
+                    <h2>Blocked Sites</h2>
+                    <ul class="list" id="blockList"></ul>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="bordered-block" id="goals-block">
+                    <h2>Your Goals</h2>
+                    <div class="add-row">
+                        <input type="text" id="goalInput" placeholder="Add a goal (e.g. Finish project)">
+                        <button class="add-btn" id="addGoal">Add</button>
+                    </div>
+                    <ul class="list" id="goalsList"></ul>
+                </div>
+                <div class="bordered-block" id="suggested-sites-block">
+                    <h2>Suggested Sites</h2>
+                    <div class="add-row">
+                        <input type="text" id="suggestNameInput" placeholder="Name (optional)">
+                        <input type="text" id="suggestUrlInput" placeholder="URL (e.g. https://wikipedia.org)">
+                        <button class="add-btn" id="addSuggest">Add</button>
+                    </div>
+                    <ul class="list" id="suggestList"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="credit">Stay Sharp &mdash; Made with more distractions than you'd expect by <a href="https://kravigupta.in" target="_blank" style="color:#aaa;text-decoration:underline;">Ravi Kumar Gupta</a></div>
+        <script src="options.js"></script>
+    </body>
+
+</html>
