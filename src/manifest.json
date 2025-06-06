@@ -5,7 +5,6 @@
     "description": "Blocks distracting websites to help you stay sharp and focused.",
     "author": "Ravi Kumar Gupta",
     "homepage_url": "https://kravigupta.in",
-    "privacy_policy": "https://github.com/kravigupta/stay-sharp-firefox-ext/blob/main/PRIVACY.md",
     "permissions": [
         "storage",
         "webRequest",

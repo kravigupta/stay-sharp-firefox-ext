@@ -86,6 +86,15 @@
                 suggestListEl.appendChild(viewToggle);
             }
 
+            // Show message if no suggested sites
+            if (!suggestList.length) {
+                const msg = document.createElement('div');
+                msg.className = 'empty-message';
+                msg.innerHTML = 'No suggested sites yet. Set them in the <a href="options.html" target="_blank" style="color:#3498db;">extension options</a>!';
+                suggestListEl.appendChild(msg);
+                return;
+            }
+
             // Card view rendering function
             function renderCardView() {
                 // Clear previous
