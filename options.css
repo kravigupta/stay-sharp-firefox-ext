@@ -141,6 +141,10 @@ h2 {
     max-width: 320px;
     flex-basis: 320px;
 }
+.add-row input#blockInput {
+    max-width: 220px;
+    flex-basis: 220px;
+}
 .add-btn {
     background: #2ecc71;
     color: white;
@@ -239,7 +243,7 @@ h2 {
         align-items: center;
         text-align: center;
     }
-    .add-row input, .add-row input#suggestNameInput, .add-row input#suggestUrlInput {
+    .add-row input, .add-row input#suggestNameInput, .add-row input#suggestUrlInput, .add-row input#blockInput {
         max-width: 100%;
         flex-basis: auto;
     }

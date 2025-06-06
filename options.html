@@ -7,7 +7,6 @@
     </head>
 
     <body>
-        <a href="options.html" class="top-link" target="_blank">Preferences</a>
         <div class="header">
             <img src="images/stay-sharp.png" alt="Stay Sharp - By Ravi Kumar Gupta" class="logo">
             <div class="header-text">
@@ -19,6 +18,10 @@
             <div class="left-col">
                 <div class="bordered-block" id="blocked-sites-block">
                     <h2>Blocked Sites</h2>
+                    <div class="add-row">
+                        <input type="text" id="blockInput" placeholder="Add domain (e.g. facebook.com)">
+                        <button class="add-btn" id="addBlock">Add</button>
+                    </div>
                     <ul class="list" id="blockList"></ul>
                 </div>
             </div>
