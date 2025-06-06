@@ -59,7 +59,19 @@
                     goalsList.appendChild(box);
                 });
             } else {
-                goalsList.innerHTML = 'Set your goals in the <a href="options.html" target="_blank" style="color:#3498db;">extension options</a>!';
+                // Safe DOM construction for the empty goals message
+                goalsList.innerHTML = '';
+                const msg = document.createElement('div');
+                msg.className = 'empty-message';
+                msg.textContent = 'Set your goals in the ';
+                const link = document.createElement('a');
+                link.href = 'options.html';
+                link.target = '_blank';
+                link.style.color = '#3498db';
+                link.textContent = 'extension options';
+                msg.appendChild(link);
+                msg.appendChild(document.createTextNode('!'));
+                goalsList.appendChild(msg);
             }
         }
         // Suggested Sites
@@ -90,7 +102,14 @@
             if (!suggestList.length) {
                 const msg = document.createElement('div');
                 msg.className = 'empty-message';
-                msg.innerHTML = 'No suggested sites yet. Set them in the <a href="options.html" target="_blank" style="color:#3498db;">extension options</a>!';
+                msg.textContent = 'No suggested sites yet. Set them in the ';
+                const link = document.createElement('a');
+                link.href = 'options.html';
+                link.target = '_blank';
+                link.style.color = '#3498db';
+                link.textContent = 'extension options';
+                msg.appendChild(link);
+                msg.appendChild(document.createTextNode('!'));
                 suggestListEl.appendChild(msg);
                 return;
             }
