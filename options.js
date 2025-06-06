@@ -177,5 +177,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             };
         }
+
+        // Add Blocked Site on Enter key
+        if (blockInput && blockInput instanceof HTMLInputElement && addBlockBtn) {
+            blockInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const val = blockInput.value.trim();
+                    // Simple domain validation: must contain at least one dot and no spaces
+                    if (val && /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(val)) {
+                        addBlockBtn.click();
+                    }
+                }
+            });
+        }
+
+        // Add Goal on Enter key
+        if (goalInput && goalInput instanceof HTMLInputElement && addGoalBtn) {
+            goalInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const val = goalInput.value.trim();
+                    if (val.length > 0) {
+                        addGoalBtn.click();
+                    }
+                }
+            });
+        }
     });
 });
