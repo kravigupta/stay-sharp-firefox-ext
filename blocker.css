@@ -188,6 +188,45 @@ h2 {
     filter: sepia(1) hue-rotate(-30deg) saturate(3) brightness(1.1);
 }
 
+.suggested-box-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.suggested-site-box {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border: 1.2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 8px 16px 8px 12px;
+    font-size: 1.08em;
+    color: #333;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    min-width: 80px;
+    max-width: 100%;
+    word-break: break-word;
+}
+.suggested-site-icon {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    background: #eee;
+    border-radius: 4px;
+    object-fit: contain;
+}
+.suggested-site-link {
+    color: #3b2fc0;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 1.05em;
+    word-break: break-all;
+}
+
 @media (max-width: 900px) {
     .main-columns {
         flex-direction: column;

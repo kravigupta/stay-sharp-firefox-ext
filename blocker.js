@@ -61,7 +61,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const suggestList = result.suggestList || [];
         if (suggestListEl) {
             suggestListEl.innerHTML = "";
-            suggestList.forEach(site => {
+            // Sites with name: show as box with icon
+            const namedSites = suggestList.filter(site => site.name && site.name.trim() !== "");
+            const unnamedSites = suggestList.filter(site => !site.name || site.name.trim() === "");
+            if (namedSites.length > 0) {
+                const boxList = document.createElement('div');
+                boxList.className = 'suggested-box-list';
+                namedSites.forEach(site => {
+                    const box = document.createElement('div');
+                    box.className = 'suggested-site-box';
+                    const img = document.createElement('img');
+                    img.src = getFaviconUrl(site.url);
+                    img.className = 'suggested-site-icon';
+                    img.alt = 'icon';
+                    img.onerror = function() {
+                        this.onerror = null;
+                        this.src = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe.svg';
+                    };
+                    box.appendChild(img);
+                    const link = document.createElement('a');
+                    link.href = site.url.startsWith('http') ? site.url : 'https://' + site.url;
+                    link.target = '_blank';
+                    link.className = 'suggested-site-link';
+                    link.textContent = site.name;
+                    box.appendChild(link);
+                    boxList.appendChild(box);
+                });
+                suggestListEl.appendChild(boxList);
+            }
+            // Sites without name: show as list (current style)
+            unnamedSites.forEach(site => {
                 const li = document.createElement("li");
                 li.className = "site-item";
                 const favicon = document.createElement("img");
@@ -70,12 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 favicon.alt = "favicon";
                 favicon.onerror = function() {
                     this.onerror = null;
-                    this.src = "images/stay-sharp.png";
+                    this.src = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/globe.svg";
                 };
                 li.appendChild(favicon);
                 const a = document.createElement("a");
                 a.href = site.url.startsWith('http') ? site.url : `https://${site.url}`;
-                a.textContent = site.name ? site.name : site.url;
+                a.textContent = site.url;
                 a.target = "_blank";
                 li.appendChild(a);
                 suggestListEl.appendChild(li);
