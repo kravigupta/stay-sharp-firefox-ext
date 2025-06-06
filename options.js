@@ -202,5 +202,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
+
+        // Add Suggested Site on Enter key (from URL input)
+        if (suggestUrlInput && suggestUrlInput instanceof HTMLInputElement && addSuggestBtn) {
+            suggestUrlInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const url = suggestUrlInput.value.trim();
+                    // Simple URL validation: must start with http(s) or look like a domain
+                    if (url && (/^https?:\/\//.test(url) || /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(url))) {
+                        addSuggestBtn.click();
+                    }
+                }
+            });
+        }
     });
 });
