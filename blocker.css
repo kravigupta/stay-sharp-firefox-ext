@@ -227,6 +227,32 @@ h2 {
     word-break: break-all;
 }
 
+.suggested-view-toggle {
+  display: flex;
+  gap: 0.5em;
+}
+.suggested-view-toggle.right-align {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  float: right;
+}
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3em 0.5em;
+  border-radius: 4px;
+  transition: background 0.2s;
+  outline: none;
+}
+.toggle-btn.active {
+  background: #e0e7ef;
+}
+.toggle-btn img {
+  display: block;
+}
+
 @media (max-width: 900px) {
     .main-columns {
         flex-direction: column;
