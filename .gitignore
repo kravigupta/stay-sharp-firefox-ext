@@ -7,3 +7,5 @@ npm-debug.log
 *.zip
 *.xpi
 package-lock.json
+move-to-src.js
+mkpkg.js

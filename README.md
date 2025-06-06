@@ -15,3 +15,5 @@ The custom page can have -
 - Options page to manage your block list
 - Lightweight and privacy-friendly
 
+## Authors
+- [@kravigupta](https://github.com/kravigupta)

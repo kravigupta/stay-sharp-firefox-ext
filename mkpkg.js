@@ -7,19 +7,20 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const DIST_DIR = path.join(__dirname, 'binaries', 'dist');
+const DIST_ZIP = path.join(__dirname, 'binaries', 'stay-sharp-firefox-ext.zip');
 const SRC_FILES = [
-  'manifest.json',
-  'background.js',
-  'blocker.html',
-  'blocker.js',
-  'blocker.css',
-  'options.html',
-  'options.js',
-  'options.css',
+  'src/manifest.json',
+  'src/background.js',
+  'src/blocker.html',
+  'src/blocker.js',
+  'src/blocker.css',
+  'src/options.html',
+  'src/options.js',
+  'src/options.css',
   'LICENSE',
   'README.md',
 ];
-const COPY_DIRS = ['images', 'icons'];
+const COPY_DIRS = ['src/images', 'src/icons'];
 
 function cleanDist() {
   if (fs.existsSync(DIST_DIR)) {
@@ -30,11 +31,11 @@ function cleanDist() {
 
 function copyFiles() {
   for (const file of SRC_FILES) {
-    fs.copyFileSync(path.join(__dirname, file), path.join(DIST_DIR, file));
+    fs.copyFileSync(path.join(__dirname, file), path.join(DIST_DIR, path.basename(file)));
   }
   for (const dir of COPY_DIRS) {
     const srcDir = path.join(__dirname, dir);
-    const destDir = path.join(DIST_DIR, dir);
+    const destDir = path.join(DIST_DIR, path.basename(dir));
     if (fs.existsSync(srcDir)) {
       fs.cpSync(srcDir, destDir, { recursive: true });
     }
@@ -60,12 +61,20 @@ function minifyAssets() {
   minify('options.css', 'css');
 }
 
+function zipDist() {
+  // Remove old zip if exists
+  if (fs.existsSync(DIST_ZIP)) fs.rmSync(DIST_ZIP);
+  // Use system zip command for cross-platform compatibility
+  execSync(`cd "${DIST_DIR}" && zip -r ../stay-sharp-firefox-ext.zip *`, { stdio: 'inherit' });
+}
+
 function main() {
   console.log('Building Stay Sharp Firefox Extension...');
   cleanDist();
   copyFiles();
   minifyAssets();
-  console.log('Build complete! Distribution is in binaries/dist');
+  zipDist();
+  console.log('Build complete! Distribution is in binaries/dist and binaries/stay-sharp-firefox-ext.zip');
 }
 
 main();
