@@ -1,0 +1,9 @@
+node_modules/
+binaries/
+.DS_Store
+*.log
+npm-debug.log
+.env
+*.zip
+*.xpi
+package-lock.json
