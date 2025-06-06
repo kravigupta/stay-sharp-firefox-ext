@@ -1,4 +1,9 @@
-let blockList = [];
+/* 
+ This file is part of the Stay Focus Browser Plugin. Unauthorized copying of this file, via any medium is strictly prohibited.
+ @author Ravi Kumar Gupta <https://kravigupta.in>
+ */
+
+ let blockList = [];
 
 // Load the block list when extension starts
 browser.storage.sync.get("blockList").then((result) => {

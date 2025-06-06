@@ -1,3 +1,7 @@
+/* 
+ This file is part of the Stay Focus Browser Plugin. Unauthorized copying of this file, via any medium is strictly prohibited.
+ @author Ravi Kumar Gupta <https://kravigupta.in>
+ */
 body {
     font-family: sans-serif;
     background: #f9f9f9;
@@ -17,10 +21,11 @@ body {
     background: #fff;
     border-radius: 6px;
     padding: 7px 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     transition: background 0.2s;
     z-index: 10;
 }
+
 .top-link:hover {
     background: #eaf6fb;
 }
@@ -40,26 +45,30 @@ body {
     padding-left: 0;
     padding-right: 0;
 }
+
 .logo {
     height: 100px;
     width: 100px;
     object-fit: contain;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     background: #fff;
 }
+
 .header-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 }
+
 .header-text h1 {
     margin: 0 0 6px 0;
     font-size: 2.2em;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
+
 .header-text p {
     margin: 0;
     font-size: 1.13em;
@@ -94,7 +103,9 @@ p {
     padding-left: 0;
     padding-right: 0;
 }
-.left-col, .right-col {
+
+.left-col,
+.right-col {
     flex: 1 1 0;
     min-width: 350px;
     max-width: 520px;
@@ -106,7 +117,7 @@ p {
     background: #fff;
     padding: 24px 22px 18px 22px;
     margin-bottom: 28px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     min-width: 380px;
 }
 
@@ -123,6 +134,7 @@ h2 {
     padding: 0;
     margin: 0 0 12px 0;
 }
+
 .list li {
     display: flex;
     align-items: center;
@@ -131,9 +143,11 @@ h2 {
     border-bottom: 1px solid #f0f0f0;
     font-size: 1.07em;
 }
+
 .list li:last-child {
     border-bottom: none;
 }
+
 .favicon {
     width: 20px;
     height: 20px;
@@ -143,38 +157,44 @@ h2 {
     background: #eee;
     object-fit: contain;
 }
+
 .site-item {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.site-item span, .site-item a {
+
+.site-item span,
+.site-item a {
     flex: 1;
     word-break: break-all;
 }
+
 .credit {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100vw;
-  background: #222;
-  color: #eee;
-  text-align: center;
-  padding: 0.7em 0.5em 0.7em 0.5em;
-  font-size: 1em;
-  letter-spacing: 0.02em;
-  z-index: 100;
-  box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.08);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    background: #222;
+    color: #eee;
+    text-align: center;
+    padding: 0.7em 0.5em 0.7em 0.5em;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    z-index: 100;
+    box-shadow: 0 -2px 12px 0 rgba(0, 0, 0, 0.08);
 }
+
 .credit a {
-  color: #7ecfff !important;
-  text-decoration: underline;
+    color: #7ecfff !important;
+    text-decoration: underline;
 }
+
 @media (max-width: 600px) {
-  .credit {
-    font-size: 0.95em;
-    padding: 0.5em 0.2em;
-  }
+    .credit {
+        font-size: 0.95em;
+        padding: 0.5em 0.2em;
+    }
 }
 
 .goals-list {
@@ -184,6 +204,7 @@ h2 {
     margin-top: 8px;
     margin-bottom: 8px;
 }
+
 .goal-box {
     display: flex;
     align-items: center;
@@ -193,11 +214,12 @@ h2 {
     padding: 8px 16px 8px 12px;
     font-size: 1.08em;
     color: #333;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
     min-width: 80px;
     max-width: 100%;
     word-break: break-word;
 }
+
 .goal-flag {
     margin-right: 8px;
     width: 20px;
@@ -214,6 +236,7 @@ h2 {
     margin-top: 8px;
     margin-bottom: 8px;
 }
+
 .suggested-site-box {
     display: flex;
     align-items: center;
@@ -223,11 +246,12 @@ h2 {
     padding: 8px 16px 8px 12px;
     font-size: 1.08em;
     color: #333;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
     min-width: 80px;
     max-width: 100%;
     word-break: break-word;
 }
+
 .suggested-site-icon {
     margin-right: 8px;
     width: 20px;
@@ -238,6 +262,7 @@ h2 {
     border-radius: 4px;
     object-fit: contain;
 }
+
 .suggested-site-link {
     color: #3b2fc0;
     text-decoration: underline;
@@ -247,29 +272,33 @@ h2 {
 }
 
 .suggested-view-toggle {
-  display: flex;
-  gap: 0.5em;
+    display: flex;
+    gap: 0.5em;
 }
+
 .suggested-view-toggle.right-align {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  float: right;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    float: right;
 }
+
 .toggle-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.3em 0.5em;
-  border-radius: 4px;
-  transition: background 0.2s;
-  outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3em 0.5em;
+    border-radius: 4px;
+    transition: background 0.2s;
+    outline: none;
 }
+
 .toggle-btn.active {
-  background: #e0e7ef;
+    background: #e0e7ef;
 }
+
 .toggle-btn img {
-  display: block;
+    display: block;
 }
 
 @media (max-width: 900px) {
@@ -279,10 +308,13 @@ h2 {
         max-width: 98vw;
         justify-content: center;
     }
-    .left-col, .right-col {
+
+    .left-col,
+    .right-col {
         max-width: 98vw;
         min-width: 0;
     }
+
     .header {
         max-width: 98vw;
         flex-direction: column;
@@ -292,20 +324,24 @@ h2 {
         justify-content: center;
     }
 }
+
 @media (max-width: 700px) {
     .header {
         flex-direction: column;
         gap: 12px;
         margin-top: 18px;
     }
+
     .header-text {
         align-items: center;
         text-align: center;
     }
+
     .main-columns {
         padding-left: 0;
         padding-right: 0;
     }
+
     .bordered-block {
         min-width: 0;
     }

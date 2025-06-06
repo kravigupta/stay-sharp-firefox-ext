@@ -1,3 +1,8 @@
+/* 
+ This file is part of the Stay Focus Browser Plugin. Unauthorized copying of this file, via any medium is strictly prohibited.
+ @author Ravi Kumar Gupta <https://kravigupta.in>
+ */
+
 // Polyfill for browser API
 const extApi = (typeof browser !== 'undefined') ? browser : chrome;
 
@@ -19,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const addSuggestBtn = document.getElementById("addSuggest");
 
     // Helper to render favicon
-    function getFaviconUrl(url) {
+    function getFaviconUrl (url) {
         try {
             let u = new URL(url.startsWith('http') ? url : 'https://' + url);
             return `${u.origin}/favicon.ico`;
@@ -29,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Render Blocked Sites
-    function renderBlocked(list) {
+    function renderBlocked (list) {
         if (!blockListEl) return;
         blockListEl.innerHTML = "";
         list.forEach((item, idx) => {
@@ -52,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Render Goals
-    function renderGoals(goals) {
+    function renderGoals (goals) {
         if (!goalsListEl) return;
         goalsListEl.innerHTML = "";
         goals.forEach((goal, idx) => {
@@ -75,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Render Suggested Sites
-    function renderSuggested(sites) {
+    function renderSuggested (sites) {
         if (!suggestListEl) return;
         // Migrate any string entries to {name: '', url: string}
         let changed = false;
@@ -97,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
             favicon.src = getFaviconUrl(site.url);
             favicon.className = "favicon";
             favicon.alt = "favicon";
-            favicon.onerror = function() {
+            favicon.onerror = function () {
                 this.onerror = null;
                 this.src = "images/stay-sharp.png";
             };

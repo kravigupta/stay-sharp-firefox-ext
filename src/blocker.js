@@ -1,4 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+/* 
+ This file is part of the Stay Focus Browser Plugin. Unauthorized copying of this file, via any medium is strictly prohibited.
+ @author Ravi Kumar Gupta <https://kravigupta.in>
+ */
+
+ document.addEventListener("DOMContentLoaded", () => {
     // Polyfill for browser API
     const extApi = (typeof browser !== 'undefined') ? browser : chrome;
 
