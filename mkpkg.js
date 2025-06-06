@@ -19,6 +19,7 @@ const SRC_FILES = [
   'src/options.html',
   'src/options.js',
   'src/options.css',
+  'PRIVACY.md',
   'LICENSE',
   'README.md',
 ];
